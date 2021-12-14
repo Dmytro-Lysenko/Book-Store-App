@@ -1,0 +1,45 @@
+.form {
+  width: 22rem;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.control {
+  font: inherit;
+  padding: 0.5rem;
+}
+
+.control label {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+.control input {
+  padding: 0.2rem;
+  font: inherit;
+  font-weight: bold;
+  width: 100%;
+}
+
+.control input:hover {
+  background-color: #bbdddd;
+}
+
+.action {
+  display: flex;
+  justify-content: end;
+}
+
+.action button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #c2c2d7;
+  border: 1px grey solid;
+  margin: 0.5rem;
+}
+
+.action button:hover {
+  background-color: #7c7cad;
+}

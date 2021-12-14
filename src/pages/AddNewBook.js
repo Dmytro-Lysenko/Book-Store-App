@@ -17,7 +17,9 @@ const AddNewBook = () => {
         method: "POST",
         body: JSON.stringify(NewBook),
       }
-    );
+    ).catch((err) => {
+      console.error(err);
+    });
   };
 
   return (

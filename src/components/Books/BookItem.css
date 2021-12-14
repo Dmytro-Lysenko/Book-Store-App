@@ -1,0 +1,50 @@
+.section {
+  background-color: aquamarine;
+  margin: 1rem;
+  width: 14rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+
+.author {
+  font-size: 1.2rem;
+  font-style: italic;
+  padding: 0.8rem;
+}
+
+.price {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.photo {
+  width: 100%;
+}
+.photo img {
+  display: block;
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+}
+
+.actions button {
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  color: #ffffff;
+  background-color: blueviolet;
+  border: rgb(118, 118, 118), #222222 solid;
+}
+
+.actions button:hover,
+.actions button:active {
+  border: rgb(118, 118, 118), #222222 solid;
+  background-color: rgb(40, 49, 173);
+}

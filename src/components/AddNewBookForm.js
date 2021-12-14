@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import './AddNewBookForm.css'
 
 const AddNewBookForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -38,8 +39,8 @@ const AddNewBookForm = (props) => {
   };
 
   return (
-    <form onSubmit={SubmitHandler}>
-      <div>
+    <form className="form" onSubmit={SubmitHandler}>
+      <div className="control">
         <label htmlFor="title">Title</label>
         <input
           value={enteredTitle}
@@ -49,7 +50,7 @@ const AddNewBookForm = (props) => {
           onChange={nameChangeHandler}
         />
       </div>
-      <div>
+      <div className="control" >
         <label htmlFor="author">Author</label>
         <input
           value={enteredAuthor}
@@ -59,7 +60,7 @@ const AddNewBookForm = (props) => {
           onChange={authorChangeHandler}
         />
       </div>
-      <div>
+      <div className="control" >
         <label htmlFor="price">Price</label>
         <input
           value={enteredPrice}
@@ -70,7 +71,7 @@ const AddNewBookForm = (props) => {
           onChange={priceChangeHandler}
         />
       </div>
-      <div>
+      <div className="control" >
         <label htmlFor="photo">Photo</label>
         <input
           value={enteredPhoto}
@@ -80,7 +81,9 @@ const AddNewBookForm = (props) => {
           onChange={photoChangeHandler}
         />
       </div>
+      <div className="action">
       <button type="submit">Add book</button>
+      </div>
     </form>
   );
 };
