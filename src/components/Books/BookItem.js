@@ -2,12 +2,54 @@ import "./BookItem.css";
 import FavoritesContext from "../../store/favorites-context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../App";
 
 const BookItem = (props) => {
   const favoritesCtx = useContext(FavoritesContext);
+  const cartCtx = useContext(CartContext);
+  const isFavorite = favoritesCtx.isFavorite(props.id);
+  const isInCart = cartCtx.cartValue.some((book) => book.id === props.id);
+  console.log(isInCart);
 
-  const addHandler = (bookId) => {
-    console.log(bookId);
+  const addToCartHandler = (newBook) => {
+    // cartCtx.cartDispatch({
+    //   type: "ADD",
+    //   book: newBook,
+    // });
+
+    // const isInCart = cartCtx.cartDispatch({ type: "ISINCART", id: newBook.id });
+    if (isInCart) {
+      cartCtx.cartDispatch({
+        type: "DEL",
+        id: newBook.id,
+      });
+    } else {
+      cartCtx.cartDispatch({
+        type: "ADD",
+        book: newBook,
+      });
+    }
+
+    // cartCtx.cartDispatch({
+    //   type: "DEL",
+    //   id: newBook.id,
+    // });
+  };
+
+  // const delToCartHandler = (book) => {
+  //   cartCtx.cartDispatch({
+  //     type: "DEL",
+  //     id: book.id,
+  //   });
+  // };
+
+  const addHandler = (book) => {
+    if (isFavorite) {
+      favoritesCtx.deleteFromFavoriteBook(props.id);
+    } else {
+      favoritesCtx.addtoFavoriteBook(book);
+      console.log(favoritesCtx.favoriteBooks);
+    }
   };
 
   return (
@@ -25,12 +67,17 @@ const BookItem = (props) => {
       <div className="actions">
         <button
           onClick={() => {
-            addHandler(props.id);
+            addHandler(props);
           }}
         >
-          Add to favorites
+          {!isFavorite ? "Add to favorite" : "Remove from favorites"}
         </button>
-        <button>Add to cart</button>
+        <button onClick={() => addToCartHandler(props)}>
+          {!isInCart ? "Add to cart" : "Delete from cart"}
+        </button>
+        {/* <button onClick={() => delToCartHandler(props)}>
+          Delete from cart
+        </button> */}
       </div>
     </section>
   );

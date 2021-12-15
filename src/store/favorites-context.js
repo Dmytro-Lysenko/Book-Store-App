@@ -5,6 +5,7 @@ const FavoritesContext = createContext({
   totalFavoriteBooks: 0,
   addtoFavoriteBook: (book) => {},
   deleteFromFavoriteBook: (bookId) => {},
+  isFavorite: (bookId) => {},
 });
 
 export const FavoritesContextProvider = (props) => {
@@ -22,11 +23,16 @@ export const FavoritesContextProvider = (props) => {
     });
   };
 
+  const isFavoriteHandler = (bookId) => {
+    return favoritesBooks.some((book) => book.id === bookId);
+  };
+
   const context = {
     favoriteBooks: favoritesBooks,
     totalFavoriteBooks: favoritesBooks.length,
     addtoFavoriteBook: addHandler,
     deleteFromFavoriteBook: deleteHandler,
+    isFavorite: isFavoriteHandler,
   };
 
   return (

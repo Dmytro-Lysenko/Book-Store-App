@@ -1,8 +1,9 @@
-
-
 import BookItem from "./BookItem";
 
 const BooksList = (props) => {
+  if (!props.allBooks) {
+    return <h1>NoALlbiiks</h1>;
+  }
   //   const test = (event, e, r, t, y, u) => {
   //     event.preventDefault();
   //     console.log(e, r, t, y, u);

@@ -70,7 +70,7 @@ const AllBooks = () => {
   };
 
   allBooksCtx.allBooks = allBooks;
-  console.log("this is allbooks", allBooks);
+
   return (
     <div>
       {error && (
