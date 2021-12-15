@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LoadingIndicator from "../UI/LoadingIndicator";
 import ErrorModal from "../UI/ErrorModal";
 import BooksList from "../components/Books/BooksList";
+import AllBooksContext from "../store/allBooks-context";
 
 const AllBooks = () => {
+  const allBooksCtx = useContext(AllBooksContext);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [loadedBooks, setLoadedBooks] = useState([]);
+  const [allBooks, setAllBooks] = useState(allBooksCtx.allBooks);
 
   // useEffect(() => {
   //   setIsLoading(true);
@@ -52,6 +55,9 @@ const AllBooks = () => {
         }
 
         setLoadedBooks(allBooks);
+        setAllBooks((prev) => {
+          return (prev = allBooks);
+        });
       })
       .catch((error) => {
         setError("Something went wrong");
@@ -63,12 +69,14 @@ const AllBooks = () => {
     setError(null);
   };
 
+  allBooksCtx.allBooks = allBooks;
+  console.log("this is allbooks", allBooks);
   return (
     <div>
       {error && (
         <ErrorModal onClose={closeErrorModalHandler}>{error}</ErrorModal>
       )}
-      <h1>All books</h1>
+      <h1 style={{ textAlign: "center", padding: "2rem" }}>All books</h1>
       {isLoading && <LoadingIndicator />}
       <BooksList allBooks={loadedBooks} />
     </div>

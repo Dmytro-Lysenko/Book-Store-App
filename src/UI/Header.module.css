@@ -1,0 +1,23 @@
+.header {
+  background-color: blue;
+}
+
+.nav {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav li {
+  list-style: none;
+}
+.nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  color: #968282;
+}
