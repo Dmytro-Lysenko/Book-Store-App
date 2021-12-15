@@ -1,0 +1,65 @@
+.section {
+  background-color: chocolate;
+  display: flex;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 18rem;
+}
+.title {
+  font-size: 0.8rem;
+}
+
+.author {
+  font-size: 0.6rem;
+  font-style: italic;
+}
+
+.price {
+  font-size: 0.6rem;
+}
+.photo {
+  width: 8rem;
+  padding: 1rem;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+}
+
+.actions {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  border: 2px #6d6767 solid;
+  display: flex;
+  border-radius: 3px;
+}
+
+.input input {
+    
+    width: 2rem;
+    text-align: center;
+  }
+
+.input span {
+  cursor: pointer;
+  width: 1.5rem;
+  background-color: rgb(191, 194, 201);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.actions h1 {
+  padding: 1rem;
+  margin-left: 2rem;
+}

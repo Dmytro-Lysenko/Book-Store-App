@@ -18,9 +18,8 @@ const cardReducer = (state, action) => {
       return [state, ...action.books];
     case "ADD":
       return [...state, action.book];
-    case "ISINCART":
-      return state.some((book) => book.id === action.id);
-
+    case "CLEAR":
+      return inCardState;
     case "DEL":
       console.log(action.id);
       return state.filter((ing) => ing.id !== action.id);
@@ -32,7 +31,7 @@ const cardReducer = (state, action) => {
 function App() {
   const [cart, dispatchCart] = useReducer(cardReducer, inCardState);
   // const cartCtx = useReducer(CartContext);
-  console.log("this is cart", cart);
+  console.log("this is cart", cart[0]);
 
   return (
     <Fragment>
