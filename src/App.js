@@ -8,20 +8,21 @@ import FavoritesBooks from "./pages/FavoritesBooks";
 import Book from "./components/Books/Book";
 import { AllBooksContextProvider } from "./store/allBooks-context";
 import { FavoritesContextProvider } from "./store/favorites-context";
+import { CartPricesContextProvider } from "./store/cartPrices-context";
 
 export const CartContext = createContext();
 const inCardState = [];
 const cardReducer = (state, action) => {
   switch (action.type) {
     case "SET":
-      console.log(action.empls);
+  
       return [state, ...action.books];
     case "ADD":
       return [...state, action.book];
     case "CLEAR":
       return inCardState;
     case "DEL":
-      console.log(action.id);
+    
       return state.filter((ing) => ing.id !== action.id);
     default:
       return state;
@@ -31,7 +32,7 @@ const cardReducer = (state, action) => {
 function App() {
   const [cart, dispatchCart] = useReducer(cardReducer, inCardState);
   // const cartCtx = useReducer(CartContext);
-  console.log("this is cart", cart[0]);
+ 
 
   return (
     <Fragment>
@@ -43,14 +44,16 @@ function App() {
               cartDispatch: dispatchCart,
             }}
           >
-            <Header />
-            <Routes>
-              <Route path="/" element={<AllBooks />}></Route>
-              <Route path="/favorites" element={<FavoritesBooks />}></Route>
-              <Route path="/cart" element={<Cart />}></Route>
-              <Route path="/add-new-book" element={<AddNewBook />}></Route>
-              <Route path="/books/:bookId" element={<Book />}></Route>
-            </Routes>
+            <CartPricesContextProvider>
+              <Header />
+              <Routes>
+                <Route path="/" element={<AllBooks />}></Route>
+                <Route path="/favorites" element={<FavoritesBooks />}></Route>
+                <Route path="/cart" element={<Cart />}></Route>
+                <Route path="/add-new-book" element={<AddNewBook />}></Route>
+                <Route path="/books/:bookId" element={<Book />}></Route>
+              </Routes>
+            </CartPricesContextProvider>
           </CartContext.Provider>
         </FavoritesContextProvider>
       </AllBooksContextProvider>

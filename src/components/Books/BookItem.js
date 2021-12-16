@@ -1,17 +1,20 @@
 import "./BookItem.css";
 import FavoritesContext from "../../store/favorites-context";
+import CartPricesContext from "../../store/cartPrices-context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../App";
 
 const BookItem = (props) => {
   const favoritesCtx = useContext(FavoritesContext);
+  const cartPricesCtx = useContext(CartPricesContext);
   const cartCtx = useContext(CartContext);
   const isFavorite = favoritesCtx.isFavorite(props.id);
   const isInCart = cartCtx.cartValue.some((book) => book.id === props.id);
   console.log(isInCart);
 
   const addToCartHandler = (newBook) => {
+    cartPricesCtx.setTotalPrice(+props.price);
     // cartCtx.cartDispatch({
     //   type: "ADD",
     //   book: newBook,

@@ -46,10 +46,9 @@
 }
 
 .input input {
-    
-    width: 2rem;
-    text-align: center;
-  }
+  width: 2rem;
+  text-align: center;
+}
 
 .input span {
   cursor: pointer;
@@ -62,4 +61,8 @@
 .actions h1 {
   padding: 1rem;
   margin-left: 2rem;
+}
+
+.total {
+  padding: 2rem;
 }
