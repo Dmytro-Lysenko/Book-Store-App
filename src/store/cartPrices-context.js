@@ -16,7 +16,7 @@ export const CartPricesContextProvider = (props) => {
     setPrices((prevPrice) => {
       return prevPrice.concat(price);
     });
-    console.log(prices);
+    // console.log(prices);
   };
 
   //   const addHandler = (price) => {
@@ -45,10 +45,9 @@ export const CartPricesContextProvider = (props) => {
       return (prevPrices = prices.splice(0, prices.length, ...priceM));
     });
 
-    console.log("clicked");
   };
 
-  console.log("Prices from context", prices);
+  // console.log("Prices from context", prices);
   const context = {
     prices: prices,
     totalPrices: prices.reduce((a, b) => a + b, 0),

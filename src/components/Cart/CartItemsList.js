@@ -1,8 +1,9 @@
 import CartBookItem from "./CartBookItem";
 
 const CartItemsList = (props) => {
-  console.log("This is cartList item", props);
-  console.log("This is cartList item", props.cartBooks);
+ 
+  // console.log("This is cartList item", props);
+  // console.log("This is cartList item", props.cartBooks);
   return (
     <div>
       {props.cartBooks.map((book) => (
@@ -10,9 +11,11 @@ const CartItemsList = (props) => {
           key={book.id}
           title={book.title}
           author={book.author}
-          price={book.price}
+          price={+book.price}
           photo={book.photo}
           id={book.id}
+          pcs={book.pcs}
+          totalPrice={+book.totalPrice}
         />
       ))}
     </div>
