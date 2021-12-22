@@ -6,7 +6,7 @@ import NewCartContext from "../store/newCart-context";
 
 const Header = () => {
   const newCartCtx = useContext(NewCartContext);
- 
+
   return (
     <header className={classes.header}>
       <nav>
@@ -19,11 +19,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/cart">Cart</Link>
-            {newCartCtx.booksInCart ? (
-              newCartCtx.booksInCart.length
-            ) : (
-              <p>There are no length</p>
-            )}
+            <span className={classes.badge}>
+              {newCartCtx.booksInCart ? newCartCtx.booksInCart.length : ""}
+            </span>
           </li>
           <li>
             <Link to="/add-new-book">Add new book</Link>

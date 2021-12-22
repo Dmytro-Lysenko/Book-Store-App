@@ -8,9 +8,11 @@ const FavoritesBooks = () => {
   const cartCtx = useContext(CartContext);
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#c0e1d6", minHeight: "100vh" }}>
       {favoriteCtx.totalFavoriteBooks === 0 && (
-        <h1>There is no favorites books</h1>
+        <h1 style={{ color: "blue", textAlign: "center", padding: "2rem" }}>
+          There is no favorites books
+        </h1>
       )}
       <BooksList
         allBooks={

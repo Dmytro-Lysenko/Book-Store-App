@@ -11,11 +11,10 @@ const AllBooks = () => {
   const [loadedBooks, setLoadedBooks] = useState([]);
   const [allBooks, setAllBooks] = useState(allBooksCtx.allBooks);
 
-
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/books.json"
+      "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/books.son"
     )
       .then((response) => response.json())
       .then((result) => {
@@ -48,11 +47,11 @@ const AllBooks = () => {
   allBooksCtx.allBooks = allBooks;
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#c0e1d6", height: "100vh" }}>
       {error && (
         <ErrorModal onClose={closeErrorModalHandler}>{error}</ErrorModal>
       )}
-      <h1 style={{ textAlign: "center", padding: "2rem" }}>All books</h1>
+      <h1 style={{ color: "blue", textAlign: "center", padding: "2rem" }}>All books</h1>
       {isLoading && <LoadingIndicator />}
       <BooksList allBooks={loadedBooks} />
     </div>

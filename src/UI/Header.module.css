@@ -21,3 +21,13 @@
 .nav a:hover {
   color: #968282;
 }
+
+.badge {
+  background-color: #c0e1d6;
+  padding: 0.5rem 0.7rem;
+  margin: 0.5rem;
+  border-radius: 15px;
+  color: blue;
+  font-size: 1rem;
+  font-weight: bold;
+}

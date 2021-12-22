@@ -7,10 +7,10 @@
 }
 
 .orderNumber {
-    font-size: 1.7rem;
-    color: #ffffff;
-    text-align: center;
-    padding: 0.5rem;
+  font-size: 1.7rem;
+  color: #ffffff;
+  text-align: center;
+  padding: 0.5rem;
 }
 
 .order {
@@ -21,19 +21,24 @@
 
 .title {
   flex: 4;
+  font-size: 1.3rem;
 }
 
 .pcs {
   flex: 0.5;
+  font-size: 1.3rem;
+  text-align: right;
 }
 
 .price {
   flex: 1;
+  font-size: 1.3rem;
+  text-align: right;
 }
 
 .totalPrice {
-    font-size: 1.5rem;
-    text-align: right;
-    padding: 2rem;
-    color: #ffffff;
-  }
+  font-size: 1.5rem;
+  text-align: right;
+  padding: 0 1rem 1rem 1rem;
+  color: #ffffff;
+}

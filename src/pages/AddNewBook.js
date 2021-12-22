@@ -25,7 +25,7 @@ const AddNewBook = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#c0e1d6", height: "100vh" }} >
       <h1 style={{ color: "blue", textAlign: "center", padding: "2rem" }}>
         Add new book
       </h1>

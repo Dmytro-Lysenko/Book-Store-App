@@ -29,9 +29,8 @@ const Orders = () => {
   }, []);
   console.log(loadedOrders);
   return (
-    <div>
+    <div style={{ backgroundColor: "#c0e1d6", minHeight: "100vh" }}>
       <section>
-        <h2>Orders</h2>
         <OrderList value={loadedOrders} />
       </section>
     </div>
