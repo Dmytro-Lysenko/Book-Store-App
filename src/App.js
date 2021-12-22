@@ -12,6 +12,7 @@ import { CartPricesContextProvider } from "./store/cartPrices-context";
 import NewCartContext, {
   NewCartContextProvider,
 } from "./store/newCart-context";
+import Orders from "./pages/Orders";
 
 export const CartContext = createContext();
 const inCardState = [];
@@ -52,6 +53,7 @@ function App() {
                   <Route path="/favorites" element={<FavoritesBooks />}></Route>
                   <Route path="/cart" element={<Cart />}></Route>
                   <Route path="/add-new-book" element={<AddNewBook />}></Route>
+                  <Route path="/orders" element={<Orders />}></Route>
                   <Route path="/books/:bookId" element={<Book />}></Route>
                 </Routes>
               </CartPricesContextProvider>

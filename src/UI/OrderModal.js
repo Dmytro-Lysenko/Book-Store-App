@@ -25,6 +25,33 @@ const OrderModal = React.memo((props) => {
   //   const totalPrices = prices.reduce((a, b) => a + b, 0);
   const totalCartPrice = cartPrice.pop();
 
+  const orderHandler = () => {
+    const newBook = newCartCtx.booksInCart.map((book) => book);
+    //  for(let book of newBook) {
+      const updNewBook = {
+        totalprice:totalCartPrice,
+        ...newBook
+      }
+
+    //  }
+
+    fetch(
+      "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/cart-orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify(updNewBook),
+      }
+    ).catch((err) => {
+      console.error(err);
+    });
+    // const order = {
+    //   title:
+    // }
+    console.log("ckick");
+    console.log(newCartCtx.booksInCart);
+    console.log(totalCartPrice);
+  };
+
   return (
     <React.Fragment>
       <div className={classes.backdrop} onClick={props.onClose} />
@@ -49,6 +76,9 @@ const OrderModal = React.memo((props) => {
         </div>
         <p>{props.children}</p>
         <div className={classes.actions}>
+          <button type="button" onClick={orderHandler}>
+            Order
+          </button>
           <button type="button" onClick={props.onClose}>
             Close
           </button>

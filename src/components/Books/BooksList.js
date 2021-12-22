@@ -1,6 +1,7 @@
 import BookItem from "./BookItem";
 
 const BooksList = (props) => {
+  console.log(props.allBooks);
   if (!props.allBooks) {
     return <h1>NoALlbiiks</h1>;
   }

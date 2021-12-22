@@ -1,0 +1,39 @@
+.container {
+  max-width: 40rem;
+  margin: 0 auto;
+  background-color: chocolate;
+  margin: 2rem auto;
+  border-radius: 20px;
+}
+
+.orderNumber {
+    font-size: 1.7rem;
+    color: #ffffff;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.title {
+  flex: 4;
+}
+
+.pcs {
+  flex: 0.5;
+}
+
+.price {
+  flex: 1;
+}
+
+.totalPrice {
+    font-size: 1.5rem;
+    text-align: right;
+    padding: 2rem;
+    color: #ffffff;
+  }

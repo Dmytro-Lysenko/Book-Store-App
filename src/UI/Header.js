@@ -27,6 +27,9 @@ const Header = () => {
           <li>
             <Link to="/add-new-book">Add new book</Link>
           </li>
+          <li>
+            <Link to="/orders">Orders</Link>
+          </li>
         </ul>
       </nav>
     </header>

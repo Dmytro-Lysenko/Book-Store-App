@@ -66,6 +66,9 @@ border-radius: 6px;
 cursor: pointer;
 }
 
+.actions:first-child > button {
+background-color: hotpink;
+}
 .actions button:hover {
   background-color: rgb(102, 103, 105);
 cursor: pointer;
