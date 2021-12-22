@@ -14,7 +14,7 @@ const AllBooks = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/books.son"
+      "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/books.json"
     )
       .then((response) => response.json())
       .then((result) => {
