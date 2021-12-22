@@ -1,40 +1,29 @@
 import React from "react";
 import classes from "./OrderModal.module.css";
-import { CartContext } from "../App";
-import CartPricesContext from "../store/cartPrices-context";
+
 import NewCartContext from "../store/newCart-context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const OrderModal = React.memo((props) => {
   const prices = [];
-  const [totalPrice, setTotalPrice] = useState(prices);
-  const cartCtx = useContext(CartContext);
-  const cartPricesCtx = useContext(CartPricesContext);
-  const newCartCtx = useContext(NewCartContext);
-  // console.log('THIS IS TOTALPRICES',cartPricesCtx.totalPrices);
-  // console.log(cartCtx.cartValue);
-  console.log(newCartCtx.booksInCart);
 
-  const cartPrice = cartCtx.cartValue.map((book) => {
+  const newCartCtx = useContext(NewCartContext);
+
+  const cartPrice = newCartCtx.booksInCart.map((book) => {
     prices.push(book.totalPrice);
     const totalPrices = prices.reduce((a, b) => a + b, 0);
     return totalPrices;
   });
-  // console.log(cartCtx.cartValue.map(price => cartCtx.cartValue.totalPrice));
 
-  //   const totalPrices = prices.reduce((a, b) => a + b, 0);
-  const totalCartPrice = cartPrice.pop();
+  const totalCartPrice = cartPrice.pop().toFixed(2);
 
   const orderHandler = () => {
     const newBook = newCartCtx.booksInCart.map((book) => book);
-    //  for(let book of newBook) {
-      const updNewBook = {
-        totalprice:totalCartPrice,
-        ...newBook
-      }
 
-    //  }
-
+    const updNewBook = {
+      totalprice: totalCartPrice,
+      ...newBook,
+    };
     fetch(
       "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/cart-orders.json",
       {
@@ -44,12 +33,6 @@ const OrderModal = React.memo((props) => {
     ).catch((err) => {
       console.error(err);
     });
-    // const order = {
-    //   title:
-    // }
-    console.log("ckick");
-    console.log(newCartCtx.booksInCart);
-    console.log(totalCartPrice);
   };
 
   return (
@@ -71,7 +54,6 @@ const OrderModal = React.memo((props) => {
           </div>
         ))}
         <div className={classes.total}>
-          {/* <h1>{totalPrice.toFixed(2)}</h1> */}
           <h2>Total Price : {totalCartPrice}</h2>
         </div>
         <p>{props.children}</p>

@@ -3,11 +3,15 @@
   margin: 1rem;
   width: 16rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
 }
 
 .title {
   font-size: 1.3rem;
-  padding: 1rem;
+  padding: 1.2rem;
 }
 
 .author {
@@ -32,7 +36,7 @@
 .actions {
   display: flex;
   justify-content: space-around;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .actions button {
@@ -41,6 +45,7 @@
   color: #ffffff;
   background-color: blueviolet;
   border: rgb(118, 118, 118), #222222 solid;
+  border-radius: 6px;
 }
 
 .actions button:hover,

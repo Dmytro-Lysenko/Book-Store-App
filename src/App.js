@@ -33,7 +33,7 @@ const cardReducer = (state, action) => {
 
 function App() {
   const [cart, dispatchCart] = useReducer(cardReducer, inCardState);
-  // const cartCtx = useReducer(CartContext);
+ 
 
   return (
     <Fragment>

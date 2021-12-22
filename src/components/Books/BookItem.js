@@ -3,27 +3,22 @@ import FavoritesContext from "../../store/favorites-context";
 import CartPricesContext from "../../store/cartPrices-context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../App";
+
 import NewCartContext from "../../store/newCart-context";
 
 const BookItem = (props) => {
   const favoritesCtx = useContext(FavoritesContext);
   const cartPricesCtx = useContext(CartPricesContext);
-  const cartCtx = useContext(CartContext);
+
   const newCartContext = useContext(NewCartContext);
 
   const isFavorite = favoritesCtx.isFavorite(props.id);
-  const isInCart = cartCtx.cartValue.some((book) => book.id === props.id);
-  
+
   const isInNewCart =
     newCartContext.booksInCart &&
     newCartContext.booksInCart.some((book) => book.id === props.id);
 
-  // console.log(newCartContext.booksInCart);
-  // console.log(newCartContext.totalPriceOfBooks);
-
   const addToCartHandler = (newBook) => {
- 
     const updNewBook = {
       key: newBook.id,
       pcs: 1,
@@ -31,47 +26,14 @@ const BookItem = (props) => {
       price: +newBook.price,
       ...newBook,
     };
-    console.log(updNewBook);
-    //////////////////////////////////
+
     newCartContext.addBook(updNewBook);
-    console.log(newCartContext.booksInCart);
     if (isInNewCart) {
       newCartContext.deleteBook(newBook.id);
     }
-    ///////
+
     cartPricesCtx.setTotalPrice(+props.price);
-    // cartCtx.cartDispatch({
-    //   type: "ADD",
-    //   book: newBook,
-    // });
-
-    // const isInCart = cartCtx.cartDispatch({ type: "ISINCART", id: newBook.id });
-
-    /////////////
-    // if (isInCart) {
-    //   cartCtx.cartDispatch({
-    //     type: "DEL",
-    //     id: newBook.id,
-    //   });
-    // } else {
-    //   cartCtx.cartDispatch({
-    //     type: "ADD",
-    //     book: updNewBook,
-    //   });
-    // }
-
-    // cartCtx.cartDispatch({
-    //   type: "DEL",
-    //   id: newBook.id,
-    // });
   };
-
-  // const delToCartHandler = (book) => {
-  //   cartCtx.cartDispatch({
-  //     type: "DEL",
-  //     id: book.id,
-  //   });
-  // };
 
   const addHandler = (book) => {
     if (isFavorite) {
@@ -104,9 +66,6 @@ const BookItem = (props) => {
         <button onClick={() => addToCartHandler(props)}>
           {!isInNewCart ? "Add to cart" : "Delete from cart"}
         </button>
-        {/* <button onClick={() => delToCartHandler(props)}>
-          Delete from cart
-        </button> */}
       </div>
     </section>
   );

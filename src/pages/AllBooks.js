@@ -11,30 +11,6 @@ const AllBooks = () => {
   const [loadedBooks, setLoadedBooks] = useState([]);
   const [allBooks, setAllBooks] = useState(allBooksCtx.allBooks);
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   try {
-  //     fetch(
-  //       "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/books.json"
-  //     )
-  //       .then((response) => response.json())
-  //       .then((result) => {
-  //         const allBooks = [];
-
-  //         for (const key in result) {
-  //           const newBook = {
-  //             id: key,
-  //             ...result[key],
-  //           };
-  //           allBooks.push(newBook);
-  //         }
-  //         console.log(allBooks);
-  //       });
-  //   } catch (error) {
-  //     setIsLoading(false);
-  //     setError(error);
-  //   }
-  // }, []);
 
   useEffect(() => {
     setIsLoading(true);

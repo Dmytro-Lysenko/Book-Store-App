@@ -1,0 +1,49 @@
+.container {
+    background-color: aquamarine;
+    height: 100vh;
+}
+
+.noitems {
+  color: blue;
+  text-align: center;
+  padding: 2rem;
+}
+
+.total {
+  width: 36rem;
+  margin: 0 auto;
+  color: blue;
+  text-align: right;
+  padding: 2rem 0;
+}
+
+.order {
+  width: 36rem;
+  margin: 0 auto;
+  color: blue;
+  text-align: right;
+  padding: 2rem 0;
+}
+
+.order button,
+.clear button {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  width: 10rem;
+  border-radius: 6px;
+}
+
+.order button:hover,
+.clear button:hover {
+  cursor: pointer;
+  /* background-color: blue; */
+  background-color: grey
+}
+
+.clear {
+  width: 36rem;
+  margin: 0 auto;
+  color: blue;
+  text-align: right;
+  padding: 2rem 0;
+}

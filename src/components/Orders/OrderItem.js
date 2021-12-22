@@ -1,10 +1,5 @@
 import classes from "./OrderItem.module.css";
 const OrderItem = (props) => {
-  // console.log(props.book);
-  // console.log(props.book[0].length);
-  // console.log(props.book.map((order) => order));
-  // console.log(props.book.map((order) => order[0]));
-  // let counter = 1;
   const random = Number(Math.random().toString().substring(4));
   return (
     <section className={classes.container}>

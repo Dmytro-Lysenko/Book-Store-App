@@ -9,6 +9,8 @@ const AddNewBook = () => {
       author: bookAuthor,
       price: bookPrice,
       photo: bookPhoto,
+      pcs: 1,
+      totalPrice: bookPrice,
     };
 
     fetch(
@@ -24,7 +26,9 @@ const AddNewBook = () => {
 
   return (
     <div>
-      <h1>Add new book</h1>
+      <h1 style={{ color: "blue", textAlign: "center", padding: "2rem" }}>
+        Add new book
+      </h1>
       <AddNewBookForm onAddBook={onAddBookHandler} />
     </div>
   );
