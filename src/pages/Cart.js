@@ -12,6 +12,7 @@ const AddNewBook = () => {
   const cartCtx = useContext(CartContext);
   const cartPricesCtx = useContext(CartPricesContext);
   const newCartCtx = useContext(NewCartContext);
+  console.log(newCartCtx.booksInCart);
 
   const [totalCartBookPrice, setTotalCartBookPrice] = useState(
     newCartCtx.totalPriceOfBooks
@@ -66,15 +67,15 @@ const AddNewBook = () => {
   return (
     <div>
       <div>
-        {cartCtx.cartValue.length === 0 ? (
+        {newCartCtx.booksInCart.length === 0 ? (
           <h1>There is no books in Cart</h1>
         ) : (
-          <CartContainer cartBook={cartCtx.cartValue} />
+          <CartContainer cartBook={newCartCtx.booksInCart} />
         )}
       </div>
 
       <div>
-        {cartCtx.cartValue.length === 0 ? (
+        {newCartCtx.booksInCart.length === 0 ? (
           " "
         ) : (
           <h1>Total: {newCartCtx.totalPriceOfBooks}</h1>
@@ -84,7 +85,7 @@ const AddNewBook = () => {
         <button onClick={payCartHandler}>Pay the order</button>
       </div>
       <div>
-        {cartCtx.cartValue.length !== 0 && (
+        {newCartCtx.booksInCart.length !== 0 && (
           <button onClick={clearCartHandler}>Clear the cart</button>
         )}
       </div>

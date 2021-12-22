@@ -14,6 +14,7 @@ const BookItem = (props) => {
 
   const isFavorite = favoritesCtx.isFavorite(props.id);
   const isInCart = cartCtx.cartValue.some((book) => book.id === props.id);
+  
   const isInNewCart =
     newCartContext.booksInCart &&
     newCartContext.booksInCart.some((book) => book.id === props.id);
@@ -45,17 +46,19 @@ const BookItem = (props) => {
     // });
 
     // const isInCart = cartCtx.cartDispatch({ type: "ISINCART", id: newBook.id });
-    if (isInCart) {
-      cartCtx.cartDispatch({
-        type: "DEL",
-        id: newBook.id,
-      });
-    } else {
-      cartCtx.cartDispatch({
-        type: "ADD",
-        book: updNewBook,
-      });
-    }
+
+    /////////////
+    // if (isInCart) {
+    //   cartCtx.cartDispatch({
+    //     type: "DEL",
+    //     id: newBook.id,
+    //   });
+    // } else {
+    //   cartCtx.cartDispatch({
+    //     type: "ADD",
+    //     book: updNewBook,
+    //   });
+    // }
 
     // cartCtx.cartDispatch({
     //   type: "DEL",
@@ -99,7 +102,7 @@ const BookItem = (props) => {
           {!isFavorite ? "Add to favorite" : "Remove from favorites"}
         </button>
         <button onClick={() => addToCartHandler(props)}>
-          {!isInCart ? "Add to cart" : "Delete from cart"}
+          {!isInNewCart ? "Add to cart" : "Delete from cart"}
         </button>
         {/* <button onClick={() => delToCartHandler(props)}>
           Delete from cart

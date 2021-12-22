@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
-import { CartContext } from "../App";
+
+import NewCartContext from "../store/newCart-context";
 
 const Header = () => {
-  const cartCtx = useContext(CartContext);
+  const newCartCtx = useContext(NewCartContext);
  
   return (
     <header className={classes.header}>
@@ -18,8 +19,8 @@ const Header = () => {
           </li>
           <li>
             <Link to="/cart">Cart</Link>
-            {cartCtx.cartValue ? (
-              cartCtx.cartValue.length
+            {newCartCtx.booksInCart ? (
+              newCartCtx.booksInCart.length
             ) : (
               <p>There are no length</p>
             )}
