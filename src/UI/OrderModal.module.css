@@ -13,7 +13,7 @@
   position: absolute;
   top: 10vh;
   left: calc(50% - 15rem);
-  width: 35rem;
+  max-width: 35rem;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   z-index: 100;
@@ -70,4 +70,16 @@
 .actions button:hover {
   background-color: rgb(102, 103, 105);
   cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+  .error-modal {
+    text-align: center;
+    position: absolute;
+    top: 10vh;
+    left: unset;
+    max-width: 35rem;
+    margin: 1rem;
+  }
 }
