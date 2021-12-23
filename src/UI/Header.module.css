@@ -11,6 +11,38 @@
 .nav li {
   list-style: none;
 }
+
+.allBooks {
+  display: unset;
+}
+
+.favorites {
+  display: unset;
+}
+
+.addNewBook {
+  display: unset;
+}
+
+.bars {
+  display: unset;
+  color: #ffffff;
+  font-size: 1.7rem;
+}
+
+.barsClose {
+  display: none;
+}
+
+.timesClose {
+  display: none;
+}
+
+.timesOpen {
+  text-align: right;
+  display: unset;
+}
+
 .nav a {
   text-decoration: none;
   color: #ffffff;
@@ -30,4 +62,51 @@
   color: blue;
   font-size: 1rem;
   font-weight: bold;
+}
+
+/* 
+Mobile  */
+
+.navMobile {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.navMobile li {
+  list-style: none;
+}
+
+.navMobile a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navMobile a:hover {
+  color: #968282;
+}
+
+.displayUnset {
+  display: unset;
+}
+.displayNone {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  /* .allBooks {
+    display: none;
+  } */
+  .favorites {
+    display: none;
+  }
+  .addNewBook {
+    display: none;
+  }
+  .bars {
+    display: unset;
+  }
 }

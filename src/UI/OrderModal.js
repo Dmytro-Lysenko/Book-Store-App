@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import classes from "./OrderModal.module.css";
 import OrderSuccessModal from "./OrderSuccessModal";
 
@@ -6,8 +7,10 @@ import NewCartContext from "../store/newCart-context";
 import { useContext, useState } from "react";
 
 const OrderModal = React.memo((props) => {
+  const navigate = useNavigate();
   const [orderSuccess, setOrderSuccess] = useState(false);
   const prices = [];
+  const random = Number(Math.random().toString().substring(4));
 
   const newCartCtx = useContext(NewCartContext);
 
@@ -16,6 +19,14 @@ const OrderModal = React.memo((props) => {
     const totalPrices = prices.reduce((a, b) => a + b, 0);
     return totalPrices;
   });
+  const closeOrderSuccessModalHandler = () => {
+    setOrderSuccess(false);
+  };
+
+  console.log(cartPrice.length);
+  if (cartPrice.length === 0) {
+    return <OrderSuccessModal onClose={closeOrderSuccessModalHandler} />;
+  }
 
   const totalCartPrice = cartPrice.pop().toFixed(2);
 
@@ -24,7 +35,8 @@ const OrderModal = React.memo((props) => {
     const newBook = newCartCtx.booksInCart.map((book) => book);
 
     const updNewBook = {
-      totalprice: totalCartPrice,
+      totalprice: +totalCartPrice,
+      key: random,
       ...newBook,
     };
     fetch(
@@ -36,10 +48,8 @@ const OrderModal = React.memo((props) => {
     ).catch((err) => {
       console.error(err);
     });
-  };
-  
-  const closeOrderSuccessModalHandler = () => {
-    setOrderSuccess(false);
+
+    newCartCtx.clearCart();
   };
 
   if (orderSuccess) {

@@ -44,16 +44,26 @@ const AllBooks = () => {
     setError(null);
   };
 
-  allBooksCtx.allBooks = allBooks;
+  const deleteBookHandler = (bookId) => {
+    console.log(bookId);
+    console.log("clicked");
+    const updatedBooks = allBooksCtx.allBooks.filter((book) => book.id !== bookId);
+    console.log(updatedBooks);
+    setLoadedBooks(updatedBooks)
+  };
+
+  allBooksCtx.allBooks = loadedBooks;
 
   return (
-    <div style={{ backgroundColor: "#c0e1d6", height: "100vh" }}>
+    <div style={{ backgroundColor: "#c0e1d6", minHeight: "100vh" }}>
       {error && (
         <ErrorModal onClose={closeErrorModalHandler}>{error}</ErrorModal>
       )}
-      <h1 style={{ color: "blue", textAlign: "center", padding: "2rem" }}>All books</h1>
+      <h1 style={{ color: "blue", textAlign: "center", padding: "2rem" }}>
+        All books
+      </h1>
       {isLoading && <LoadingIndicator />}
-      <BooksList allBooks={loadedBooks} />
+      <BooksList allBooks={loadedBooks} onDel={deleteBookHandler} />
     </div>
   );
 };

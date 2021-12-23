@@ -10,8 +10,8 @@
 
 .error-modal {
   text-align: center;
-  position: fixed;
-  top: 15vh;
+  position: absolute;
+  top: 10vh;
   left: calc(50% - 15rem);
   width: 35rem;
   background: white;

@@ -5,6 +5,10 @@ const OrderList = (props) => {
     return <h1>No orders</h1>;
   }
 
+  const deleteOrderHandler = (firebaseKey,key)=> {
+    props.OnDelete(firebaseKey,key)
+  }
+
   return (
     <div>
       <section>
@@ -19,7 +23,7 @@ const OrderList = (props) => {
           OrderList
         </h2>
         {props.value.map((book) => (
-          <OrderItem
+          <OrderItem Onclose={deleteOrderHandler}
             // title={book.title}
             // pcs={book.pcs}
             // price={book.totalPrice}

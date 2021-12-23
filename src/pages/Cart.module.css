@@ -10,7 +10,7 @@
 }
 
 .total {
-  width: 36rem;
+  max-width: 36rem;
   margin: 0 auto;
   color: blue;
   text-align: right;
@@ -18,7 +18,7 @@
 }
 
 .order {
-  width: 36rem;
+  max-width: 36rem;
   margin: 0 auto;
   color: blue;
   text-align: right;
@@ -41,7 +41,7 @@
 }
 
 .clear {
-  width: 36rem;
+  max-width: 36rem;
   margin: 0 auto;
   color: blue;
   text-align: right;

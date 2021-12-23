@@ -1,8 +1,15 @@
-import React from 'react';
+import React from "react";
+import { useNavigate } from "react-router";
 
-import './ErrorModal.css';
+import "./ErrorModal.css";
 
-const OrderSuccessModal = React.memo(props => {
+const OrderSuccessModal = React.memo((props) => {
+  const navigate = useNavigate();
+
+  const closeHandler = () => {
+    navigate("/orders", { replace: true });
+  };
+
   return (
     <React.Fragment>
       <div className="backdrop" onClick={props.onClose} />
@@ -10,7 +17,7 @@ const OrderSuccessModal = React.memo(props => {
         <h2>You have successfully ordered books!</h2>
         <p>{props.children}</p>
         <div className="error-modal__actions">
-          <button type="button" onClick={props.onClose}>
+          <button type="button" onClick={closeHandler}>
             Close
           </button>
         </div>

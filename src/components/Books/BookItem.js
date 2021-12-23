@@ -43,6 +43,10 @@ const BookItem = (props) => {
     }
   };
 
+  const deleteHandler = (bookId) => {
+    props.onDel(bookId);
+  };
+
   return (
     <section className="section">
       <h1 className="title">{props.title}</h1>
@@ -66,6 +70,7 @@ const BookItem = (props) => {
         <button onClick={() => addToCartHandler(props)}>
           {!isInNewCart ? "Add to cart" : "Delete from cart"}
         </button>
+        <button onClick={() => deleteHandler(props.id)}>Delete</button>
       </div>
     </section>
   );
