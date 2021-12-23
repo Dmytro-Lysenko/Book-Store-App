@@ -54,22 +54,20 @@
 
 .actions {
   display: flex;
-  justify-content: center;
-  padding: 1rem;
+  justify-content: space-around;
+  padding: 1rem 4rem;
 }
 
 .actions button {
   background-color: rgb(158, 160, 165);
-color: white;
-padding: 0.5rem 1rem;
-border-radius: 6px;
-cursor: pointer;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.actions:first-child > button {
-background-color: hotpink;
-}
+
 .actions button:hover {
   background-color: rgb(102, 103, 105);
-cursor: pointer;
+  cursor: pointer;
 }

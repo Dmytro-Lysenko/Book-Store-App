@@ -22,6 +22,8 @@ const AddNewBook = () => {
 
   const totalCartPrice = newCartCtx.totalPriceOfBooks.toFixed(2);
 
+  
+
   return (
     <div className={classes.container}>
       <div>

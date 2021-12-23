@@ -1,10 +1,12 @@
 import React from "react";
 import classes from "./OrderModal.module.css";
+import OrderSuccessModal from "./OrderSuccessModal";
 
 import NewCartContext from "../store/newCart-context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const OrderModal = React.memo((props) => {
+  const [orderSuccess, setOrderSuccess] = useState(false);
   const prices = [];
 
   const newCartCtx = useContext(NewCartContext);
@@ -18,6 +20,7 @@ const OrderModal = React.memo((props) => {
   const totalCartPrice = cartPrice.pop().toFixed(2);
 
   const orderHandler = () => {
+    setOrderSuccess(true);
     const newBook = newCartCtx.booksInCart.map((book) => book);
 
     const updNewBook = {
@@ -34,6 +37,14 @@ const OrderModal = React.memo((props) => {
       console.error(err);
     });
   };
+  
+  const closeOrderSuccessModalHandler = () => {
+    setOrderSuccess(false);
+  };
+
+  if (orderSuccess) {
+    return <OrderSuccessModal onClose={closeOrderSuccessModalHandler} />;
+  }
 
   return (
     <React.Fragment>
