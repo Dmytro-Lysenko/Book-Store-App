@@ -26,19 +26,16 @@ const AddNewBookForm = (props) => {
 
   const nameChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
-    console.log(enteredTitle);
+  
   };
   const authorChangeHandler = (event) => {
     setEnteredAuthor(event.target.value);
-    console.log(enteredAuthor);
   };
   const priceChangeHandler = (event) => {
     setEnteredPrice(event.target.value);
-    console.log(enteredPrice);
   };
   const photoChangeHandler = (event) => {
     setEnteredPhoto(event.target.value);
-    console.log(enteredPhoto);
   };
 
   return (

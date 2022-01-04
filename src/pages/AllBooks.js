@@ -45,10 +45,7 @@ const AllBooks = () => {
   };
 
   const deleteBookHandler = (bookId) => {
-    console.log(bookId);
-    console.log("clicked");
     const updatedBooks = allBooksCtx.allBooks.filter((book) => book.id !== bookId);
-    console.log(updatedBooks);
     setLoadedBooks(updatedBooks)
   };
 

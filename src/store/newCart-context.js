@@ -17,7 +17,7 @@ export const NewCartContextProvider = (props) => {
   const [totalCartPrices, setTotalCartPrices] = useState([]);
   const tPrices = booksInCart.map((book) => book.totalPrice);
 
-  console.log(booksInCart);
+
   const addHandler = (book) => {
     setBooksInCart((prevBooks) => {
       return [book, ...prevBooks];
@@ -72,7 +72,6 @@ export const NewCartContextProvider = (props) => {
   // const increasePriceOfBookHamdler = (bookId) => {};
 
   const setBooksInCartHandler = (books) => {
-    console.log(books);
     setBooksInCart((prev) => {
       return (prev = books);
     });

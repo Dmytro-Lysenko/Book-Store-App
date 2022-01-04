@@ -29,6 +29,7 @@ const OrderList = (props) => {
             // price={book.totalPrice}
             // key={book.id}
             // totPrice={totPrice}
+            key={book.id}
             book={book}
           />
         ))}

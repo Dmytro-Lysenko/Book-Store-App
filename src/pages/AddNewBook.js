@@ -2,7 +2,6 @@ import AddNewBookForm from "../components/AddNewBookForm";
 
 const AddNewBook = () => {
   const onAddBookHandler = (bookTitle, bookAuthor, bookPrice, bookPhoto) => {
-    console.log(bookTitle, bookAuthor, bookPrice, bookPhoto);
 
     const NewBook = {
       title: bookTitle,

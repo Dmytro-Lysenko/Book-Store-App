@@ -1,4 +1,4 @@
-import { createContext, Fragment, useReducer, useState } from "react";
+import { createContext, Fragment, useReducer } from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./UI/Header";
 import AllBooks from "./pages/AllBooks";
@@ -9,9 +9,7 @@ import Book from "./components/Books/Book";
 import { AllBooksContextProvider } from "./store/allBooks-context";
 import { FavoritesContextProvider } from "./store/favorites-context";
 import { CartPricesContextProvider } from "./store/cartPrices-context";
-import NewCartContext, {
-  NewCartContextProvider,
-} from "./store/newCart-context";
+import { NewCartContextProvider } from "./store/newCart-context";
 import Orders from "./pages/Orders";
 
 export const CartContext = createContext();
@@ -25,7 +23,7 @@ const cardReducer = (state, action) => {
     case "CLEAR":
       return inCardState;
     case "DEL":
-      return state.filter((ing) => ing.id !== action.id);
+      return state.filter((book) => book.id !== action.id);
     default:
       return state;
   }
@@ -33,7 +31,6 @@ const cardReducer = (state, action) => {
 
 function App() {
   const [cart, dispatchCart] = useReducer(cardReducer, inCardState);
- 
 
   return (
     <Fragment>

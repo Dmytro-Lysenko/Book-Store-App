@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import OrderList from "../components/Orders/OrderList";
+import ErrorModal from "../UI/ErrorModal";
+import LoadingIndicator from "../UI/LoadingIndicator";
 
 const Orders = () => {
   let navigate = useNavigate();
   const [loadedOrders, setLoadedOrders] = useState([]);
-  const [order, setOrder] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
-    // setIsLoading(true);
+    setIsLoading(true);
     fetch(
       "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/cart-orders.json"
     )
       .then((response) => response.json())
       .then((result) => {
-        // console.log(result);
         const updResult = Object.values(result);
         const key = Object.keys(result);
-        // console.log(updResult);
-        // console.log(key);
 
         const orders = [];
         for (let i = 0; i < updResult.length; i++) {
@@ -27,20 +27,23 @@ const Orders = () => {
           const y = [key[i], ...resultsInArray];
           // console.log(y);
           orders.push(y);
+          setIsLoading(false);
         }
-        console.log(orders);
         setLoadedOrders((prevorders) => {
           return (prevorders = orders);
         });
       })
       .catch((error) => {
-        // setError("Something went wrong");
+        setError("Something went wrong");
       });
   }, []);
-  console.log("This is loadedOrders", loadedOrders);
+
+  const closeErrorModalHandler = () => {
+    setIsLoading(false);
+    setError(null);
+  };
 
   const deleteOrderHandler = (firebaseKey, key) => {
-    console.log("clicked", firebaseKey, key);
     // console.log(loadedOrders);
 
     // const test = loadedOrders.filter((order) => order[3] !== key);
@@ -91,6 +94,10 @@ const Orders = () => {
   return (
     <div style={{ backgroundColor: "#c0e1d6", minHeight: "100vh" }}>
       <section>
+        {error && (
+          <ErrorModal onClose={closeErrorModalHandler}>{error}</ErrorModal>
+        )}
+        {isLoading && <LoadingIndicator />}
         <OrderList value={loadedOrders} OnDelete={deleteOrderHandler} />
       </section>
     </div>
