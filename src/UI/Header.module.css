@@ -25,7 +25,7 @@
 }
 
 .bars {
-  display: unset;
+  display: none;
   color: #ffffff;
   font-size: 1.7rem;
 }
@@ -72,6 +72,12 @@ Mobile  */
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+}
+
+.bars {
+  display: none;
+  color: #ffffff;
+  font-size: 1.7rem;
 }
 
 .navMobile li {

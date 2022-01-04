@@ -11,7 +11,14 @@ const Header = () => {
   let times;
   let bars;
   let allBooksLi;
+  let addNewBookLi;
+  let favoritesBookLi;
+  addNewBookLi = classes.addNewBook;
+  favoritesBookLi = classes.favorites;
+
   const [allBooks, setAllBooks] = useState(allBooksLi);
+  const [addNewBook, setAddNewBook] = useState(addNewBookLi);
+  const [favoritesBook, setFavoritesBook] = useState(favoritesBookLi);
   const [navMenu, setNavMenu] = useState(nav);
   const [closeIcon, setCloseIcon] = useState(times);
   const [barsIcon, setBarsIcon] = useState(bars);
@@ -20,7 +27,6 @@ const Header = () => {
   nav = classes.nav;
   times = classes.timesClose;
   bars = classes.bars;
-  allBooksLi = classes.displayNone;
 
   const mobileMenuHandler = () => {
     console.log("clicked");
@@ -28,19 +34,27 @@ const Header = () => {
     times = classes.timesOpen;
     bars = classes.barsClose;
     allBooksLi = classes.displayUnset;
+    addNewBookLi = classes.displayUnset;
+    favoritesBookLi = classes.displayUnset;
     setNavMenu(nav);
     setCloseIcon(times);
     setBarsIcon(bars);
     setAllBooks(allBooksLi);
+    setAddNewBook(addNewBookLi);
+    setFavoritesBook(favoritesBookLi);
   };
 
   const closeIconHandler = () => {
     times = classes.timesClose;
     nav = classes.nav;
+    // addNewBookLi = classes.addNewBook;
+    // favoritesBookLi = classes.favorites;
     setCloseIcon(times);
     setNavMenu(nav);
     setBarsIcon(bars);
     setAllBooks(allBooksLi);
+    setAddNewBook(addNewBookLi);
+    setFavoritesBook(favoritesBookLi);
   };
 
   return (
@@ -56,7 +70,7 @@ const Header = () => {
           <li className={!allBooks ? allBooksLi : allBooks}>
             <Link to="/">All books</Link>
           </li>
-          <li className={classes.favorites}>
+          <li className={favoritesBook}>
             <Link to="/favorites"> Favorites</Link>
           </li>
           <li>
@@ -65,7 +79,7 @@ const Header = () => {
               {newCartCtx.booksInCart ? newCartCtx.booksInCart.length : ""}
             </span>
           </li>
-          <li className={classes.addNewBook}>
+          <li className={addNewBook}>
             <Link to="/add-new-book">Add new book</Link>
           </li>
           <li>

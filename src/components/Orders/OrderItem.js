@@ -1,7 +1,7 @@
 import classes from "./OrderItem.module.css";
 const OrderItem = (props) => {
   console.log(props.book);
-  // const random = Number(Math.random().toString().substring(4));
+  const random = Number(Math.random().toString().substring(4));
   const newOrder = props.book;
   const price = newOrder.slice(-1);
   const fireBaseKey = newOrder.shift();

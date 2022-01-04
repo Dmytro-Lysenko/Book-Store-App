@@ -23,6 +23,7 @@
 .price {
   font-size: 0.6rem;
 }
+
 .photo {
   width: 8rem;
   padding: 1rem;
@@ -64,4 +65,11 @@
 
 .total {
   padding: 2rem;
+}
+
+@media (max-width: 600px) {
+  .actions h1 {
+    padding: 0.3rem;
+    font-size: 1rem;
+  }
 }

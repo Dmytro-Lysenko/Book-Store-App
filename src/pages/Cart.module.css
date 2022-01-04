@@ -1,6 +1,6 @@
 .container {
-    background-color: #c0e1d6;;
-    min-height: 100vh;
+  background-color: #c0e1d6;
+  min-height: 100vh;
 }
 
 .noitems {
@@ -37,7 +37,7 @@
 .clear button:hover {
   cursor: pointer;
   /* background-color: blue; */
-  background-color: grey
+  background-color: grey;
 }
 
 .clear {
@@ -46,4 +46,16 @@
   color: blue;
   text-align: right;
   padding: 2rem 0;
+}
+
+@media (max-width: 600px) {
+  .total {
+    padding-right: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .order,
+  .clear {
+    padding-right: 0.5rem;
+  }
 }
