@@ -1,7 +1,9 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router";
 import './AddNewBookForm.css'
 
 const AddNewBookForm = (props) => {
+  let navigate = useNavigate();
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAuthor, setEnteredAuthor] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
@@ -19,6 +21,7 @@ const AddNewBookForm = (props) => {
     setEnteredAuthor("");
     setEnteredPrice("");
     setEnteredPhoto("");
+    navigate("/", { replace: true });
   };
 
   const nameChangeHandler = (event) => {
