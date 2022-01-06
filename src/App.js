@@ -46,12 +46,12 @@ function App() {
               <CartPricesContextProvider>
                 <Header />
                 <Routes>
-                  <Route path="/" element={<AllBooks />}></Route>
-                  <Route path="/favorites" element={<FavoritesBooks />}></Route>
-                  <Route path="/cart" element={<Cart />}></Route>
-                  <Route path="/add-new-book" element={<AddNewBook />}></Route>
-                  <Route path="/orders" element={<Orders />}></Route>
-                  <Route path="/books/:bookId" element={<Book />}></Route>
+                  <Route path="/Book-Store-App/" element={<AllBooks />}></Route>
+                  <Route path="/Book-Store-App/favorites" element={<FavoritesBooks />}></Route>
+                  <Route path="/Book-Store-App/cart" element={<Cart />}></Route>
+                  <Route path="/Book-Store-App/add-new-book" element={<AddNewBook />}></Route>
+                  <Route path="/Book-Store-App/orders" element={<Orders />}></Route>
+                  <Route path="/Book-Store-App/books/:bookId" element={<Book />}></Route>
                 </Routes>
               </CartPricesContextProvider>
             </CartContext.Provider>

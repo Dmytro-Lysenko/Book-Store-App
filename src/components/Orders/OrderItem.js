@@ -9,6 +9,7 @@ const OrderItem = (props) => {
   // const x = newOrder.length - 2;
   // const key = newOrder[x];
   // const key = props.book.slice(-1);
+  const firebaseKey = props.book[Object.keys(props.book).length - 2];
   const deletehandler = (firebaseKey) => {
     props.Onclose(firebaseKey);
   };
@@ -25,7 +26,7 @@ const OrderItem = (props) => {
       ))}
       <h3 className={classes.totalPrice}>Total: {props.book[Object.keys(props.book).length - 1]}</h3>
       <div className={classes.delete}>
-        <button onClick={() => deletehandler(props.key)}>
+        <button onClick={() => deletehandler(firebaseKey)}>
           Delete order
         </button>
       </div>

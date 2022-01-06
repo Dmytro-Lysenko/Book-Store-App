@@ -83,22 +83,22 @@ const Header = () => {
             <FaTimes />
           </li>
           <li className={!allBooks ? allBooksLi : allBooks}>
-            <Link to="/">All books</Link>
+            <Link to="/Book-Store-App/">All books</Link>
           </li>
           <li className={favoritesBook}>
-            <Link to="/favorites"> Favorites</Link>
+            <Link to="/Book-Store-App/favorites"> Favorites</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/Book-Store-App/cart">Cart</Link>
             <span className={classes.badge}>
               {newCartCtx.booksInCart ? newCartCtx.booksInCart.length : ""}
             </span>
           </li>
           <li className={addNewBook}>
-            <Link to="/add-new-book">Add new book</Link>
+            <Link to="/Book-Store-App/add-new-book">Add new book</Link>
           </li>
           <li>
-            <Link to="/orders">Orders</Link>
+            <Link to="/Book-Store-App/orders">Orders</Link>
           </li>
           <li
             onClick={mobileMenuHandler}

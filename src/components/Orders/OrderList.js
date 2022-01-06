@@ -6,8 +6,8 @@ const OrderList = (props) => {
   }
   console.log(props.value) 
 
-  const deleteOrderHandler = (firebaseKey, key) => {
-    props.OnDelete(firebaseKey, key);
+  const deleteOrderHandler = (firebaseKey) => {
+    props.OnDelete(firebaseKey);
   };
 
   const getKey = (book) => {

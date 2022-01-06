@@ -10,35 +10,25 @@ const Orders = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
-  useEffect(() => {
-    setIsLoading(true);
+  const getOrders = () => {
     fetch(
       "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/cart-orders.json"
     )
       .then((response) => response.json())
       .then((result) => {
-        console.log(result)
+        console.log(result);
         // console.dir(result)
         const updResult = Object.values(result);
         const key = Object.keys(result);
-        
-        let ordersWithKeys = []
+
+        let ordersWithKeys = [];
 
         for (const prop in result) {
-          result[prop].key = prop
-          ordersWithKeys.push(Object.values(result[prop]))
+          result[prop].key = prop;
+          ordersWithKeys.push(Object.values(result[prop]));
         }
+        setIsLoading(false);
 
-        const orders = [];
-        for (let i = 0; i < updResult.length; i++) {
-          // console.log(updResult[i]);
-          const resultsInArray = Object.values(updResult[i]);
-          const y = [key[i], ...resultsInArray];
-          // console.log(y);
-          orders.push(y);
-          setIsLoading(false);
-        }
-        // console.log(orders)
         setLoadedOrders((prevorders) => {
           return (prevorders = ordersWithKeys);
         });
@@ -46,6 +36,11 @@ const Orders = () => {
       .catch((error) => {
         setError("Something went wrong");
       });
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getOrders();
   }, []);
 
   const closeErrorModalHandler = () => {
@@ -66,7 +61,7 @@ const Orders = () => {
         method: "DELETE",
       }
     ).then(() => {
-      navigate("/", { replace: true });
+      getOrders();
     });
 
     /////////////////
