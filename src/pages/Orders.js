@@ -17,8 +17,17 @@ const Orders = () => {
     )
       .then((response) => response.json())
       .then((result) => {
+        console.log(result)
+        // console.dir(result)
         const updResult = Object.values(result);
         const key = Object.keys(result);
+        
+        let ordersWithKeys = []
+
+        for (const prop in result) {
+          result[prop].key = prop
+          ordersWithKeys.push(Object.values(result[prop]))
+        }
 
         const orders = [];
         for (let i = 0; i < updResult.length; i++) {
@@ -29,8 +38,9 @@ const Orders = () => {
           orders.push(y);
           setIsLoading(false);
         }
+        // console.log(orders)
         setLoadedOrders((prevorders) => {
-          return (prevorders = orders);
+          return (prevorders = ordersWithKeys);
         });
       })
       .catch((error) => {

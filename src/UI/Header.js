@@ -59,6 +59,21 @@ const Header = () => {
 
   return (
     <header className={classes.header}>
+      <div
+        style={{
+          textAlign: "center",
+          padding: "10px",
+          backgroundColor: "orange",
+        }}
+      >
+        Currently in development <a
+          href="https://github.com/Dmytro-Lysenko/Book-Store-App"
+          rel="noreferrer"
+          target="_blank"
+        >
+           Source code
+        </a>
+      </div>
       <nav>
         <ul className={!navMenu ? nav : navMenu}>
           <li

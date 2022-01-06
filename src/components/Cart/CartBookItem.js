@@ -10,7 +10,7 @@ const CartBookItem = (props) => {
   const newcCartCtx = useContext(NewCartContext);
 
 
-  const [amountValue, setamountValue] = useState(1);
+  const [amountValue, setAmountValue] = useState(1);
 
   const [bookFieldPrice, setBookFieldPrice] = useState(+props.price);
   const [totalCartBookPrice, setTotalCartBookPrice] = useState(
@@ -23,7 +23,7 @@ const CartBookItem = (props) => {
   const decreaseHandler = (event) => {
     const enteredAmount = amountInput.current.value;
     if (1 < enteredAmount) {
-      setamountValue((prev) => {
+      setAmountValue((prev) => {
         return amountValue - 1;
       });
       setTotalCartBookPrice(totalCartBookPrice - props.price);
@@ -45,7 +45,7 @@ const CartBookItem = (props) => {
  
 
     if (enteredAmount < 11) {
-      setamountValue((prev) => {
+      setAmountValue((prev) => {
         return amountValue + 1;
       });
       setTotalCartBookPrice(totalCartBookPrice + props.price);
@@ -82,6 +82,7 @@ const CartBookItem = (props) => {
               step="1"
               ref={amountInput}
               value={amountValue}
+              onChange={(e)=> setAmountValue(e.target.value)}
             />
             <span onClick={increaseHandler}>+</span>
           </div>
