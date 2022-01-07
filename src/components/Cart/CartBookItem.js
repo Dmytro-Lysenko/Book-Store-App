@@ -33,7 +33,7 @@ const CartBookItem = (props) => {
 
       newcCartCtx.decreaseBook(props.id, props);
     } else {
-      console.log("MENSHE 1");
+     
     }
     
   };

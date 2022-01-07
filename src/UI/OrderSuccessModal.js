@@ -7,7 +7,7 @@ const OrderSuccessModal = React.memo((props) => {
   const navigate = useNavigate();
 
   const closeHandler = () => {
-    navigate("/orders", { replace: true });
+    navigate("/Book-Store-App/orders", { replace: true });
   };
 
   return (

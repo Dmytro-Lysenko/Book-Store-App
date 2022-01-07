@@ -9,7 +9,7 @@ const AllBooks = () => {
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [loadedBooks, setLoadedBooks] = useState([]);
-  const [allBooks, setAllBooks] = useState(allBooksCtx.allBooks);
+  // const [allBooks, setAllBooks] = useState(allBooksCtx.allBooks);
 
   useEffect(() => {
     setIsLoading(true);
@@ -30,9 +30,9 @@ const AllBooks = () => {
         }
 
         setLoadedBooks(allBooks);
-        setAllBooks((prev) => {
-          return (prev = allBooks);
-        });
+        // setAllBooks((prev) => {
+        //   return (prev = allBooks);
+        // });
       })
       .catch((error) => {
         setError("Something went wrong");

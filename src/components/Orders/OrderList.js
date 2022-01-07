@@ -4,7 +4,6 @@ const OrderList = (props) => {
   if (!props.value) {
     return <h1>No orders</h1>;
   }
-  console.log(props.value) 
 
   const deleteOrderHandler = (firebaseKey) => {
     props.OnDelete(firebaseKey);
@@ -12,7 +11,7 @@ const OrderList = (props) => {
 
   const getKey = (book) => {
     return book[Object.keys(book).length - 2];
-  }
+  };
 
   return (
     <div>

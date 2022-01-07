@@ -29,7 +29,7 @@ const Header = () => {
   bars = classes.bars;
 
   const mobileMenuHandler = () => {
-    console.log("clicked");
+   
     nav = classes.navMobile;
     times = classes.timesOpen;
     bars = classes.barsClose;
