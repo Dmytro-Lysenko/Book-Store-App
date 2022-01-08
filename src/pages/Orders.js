@@ -9,13 +9,12 @@ const Orders = () => {
   const [error, setError] = useState();
 
   const getOrders = () => {
+    setIsLoading(true);
     fetch(
       "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/cart-orders.json"
     )
       .then((response) => response.json())
       .then((result) => {
-
-
         let ordersWithKeys = [];
 
         for (const prop in result) {
@@ -44,8 +43,6 @@ const Orders = () => {
   };
 
   const deleteOrderHandler = (firebaseKey) => {
-   
-
     fetch(
       `https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/cart-orders/${firebaseKey}.json`,
       {
@@ -54,11 +51,8 @@ const Orders = () => {
     ).then(() => {
       getOrders();
     });
-
-    
   };
 
-  
   return (
     <div style={{ backgroundColor: "#c0e1d6", minHeight: "100vh" }}>
       {loadedOrders.length === 0 ? (

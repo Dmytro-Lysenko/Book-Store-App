@@ -11,7 +11,7 @@ const AllBooks = () => {
   const [loadedBooks, setLoadedBooks] = useState([]);
   // const [allBooks, setAllBooks] = useState(allBooksCtx.allBooks);
 
-  useEffect(() => {
+  const getAllBooks = () => {
     setIsLoading(true);
     fetch(
       "https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/books.json"
@@ -37,6 +37,10 @@ const AllBooks = () => {
       .catch((error) => {
         setError("Something went wrong");
       });
+  };
+
+  useEffect(() => {
+    getAllBooks();
   }, []);
 
   const closeErrorModalHandler = () => {
@@ -45,8 +49,19 @@ const AllBooks = () => {
   };
 
   const deleteBookHandler = (bookId) => {
-    const updatedBooks = allBooksCtx.allBooks.filter((book) => book.id !== bookId);
-    setLoadedBooks(updatedBooks)
+    // const updatedBooks = allBooksCtx.allBooks.filter(
+    //   (book) => book.id !== bookId
+    // );
+    // setLoadedBooks(updatedBooks);
+
+    fetch(
+      `https://react-app-81b61-default-rtdb.europe-west1.firebasedatabase.app/books/${bookId}.json`,
+      {
+        method: "DELETE",
+      }
+    ).then(() => {
+      getAllBooks();
+    });
   };
 
   allBooksCtx.allBooks = loadedBooks;
