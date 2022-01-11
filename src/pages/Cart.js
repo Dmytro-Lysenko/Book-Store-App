@@ -26,6 +26,7 @@ const AddNewBook = () => {
   };
 
 
+
   return (
     <div className={classes.container}>
       {/* <div>{totalPrice}</div>
@@ -40,7 +41,7 @@ const AddNewBook = () => {
       </div>
 
       <div>
-        {totalCartPrice.length === 0 ? (
+        {newCartCtx.totalPriceOfBooks === 0 ? (
           " "
         ) : (
           <h1 className={classes.total}>Total: {totalCartPrice}</h1>
