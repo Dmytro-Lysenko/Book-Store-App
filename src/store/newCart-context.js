@@ -14,7 +14,7 @@ const NewCartContext = createContext({
 
 export const NewCartContextProvider = (props) => {
   const [booksInCart, setBooksInCart] = useState([]);
-  // const [totalCartPrices, setTotalCartPrices] = useState([]);
+  const [totalCartPrices, setTotalCartPrices] = useState([]);
   const tPrices = booksInCart.map((book) => book.totalPrice);
 
 
@@ -43,7 +43,7 @@ export const NewCartContextProvider = (props) => {
         totalPrice: (newBook[0].totalPrice = newBook[0].pcs * newBook[0].price),
         ...newBook[0],
       };
-      // setTotalCartPrices(updNewBook.totalPrice);
+      setTotalCartPrices(updNewBook.totalPrice);
 
       booksInCart.filter((book) => book.id !== bookId);
       booksInCart.concat(updNewBook);
@@ -60,7 +60,7 @@ export const NewCartContextProvider = (props) => {
         ...newBook[0],
       };
 
-      // setTotalCartPrices(updNewBook.totalPrice);
+      setTotalCartPrices(updNewBook.totalPrice);
 
       booksInCart.filter((book) => book.id !== bookId);
       booksInCart.concat(updNewBook);

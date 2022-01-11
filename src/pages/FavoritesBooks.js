@@ -7,6 +7,7 @@ const FavoritesBooks = () => {
   const favoriteCtx = useContext(FavoritesContext);
   const cartCtx = useContext(CartContext);
 
+
   return (
     <div style={{ backgroundColor: "#c0e1d6", minHeight: "100vh" }}>
       {favoriteCtx.totalFavoriteBooks === 0 && (

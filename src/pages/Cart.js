@@ -4,9 +4,14 @@ import CartContainer from "../components/Cart/CartContainer";
 import OrderModal from "../UI/OrderModal";
 import classes from "./Cart.module.css";
 
+
 const AddNewBook = () => {
   const newCartCtx = useContext(NewCartContext);
+
   const [order, setOrder] = useState(false);
+ 
+
+  const totalCartPrice = newCartCtx.totalPriceOfBooks.toFixed(2);
 
   const clearCartHandler = () => {
     newCartCtx.clearCart();
@@ -20,12 +25,12 @@ const AddNewBook = () => {
     setOrder(false);
   };
 
-  const totalCartPrice = newCartCtx.totalPriceOfBooks.toFixed(2);
-
-  
 
   return (
     <div className={classes.container}>
+      {/* <div>{totalPrice}</div>
+      <div>{newCartCtx.totalPriceOfBooks.toFixed(2)}</div>
+      <div>{cartCtx.totalPrices}</div> */}
       <div>
         {newCartCtx.booksInCart.length === 0 ? (
           <h1 className={classes.noitems}>There is no books in Cart</h1>
@@ -35,7 +40,7 @@ const AddNewBook = () => {
       </div>
 
       <div>
-        {newCartCtx.booksInCart.length === 0 ? (
+        {totalCartPrice.length === 0 ? (
           " "
         ) : (
           <h1 className={classes.total}>Total: {totalCartPrice}</h1>
